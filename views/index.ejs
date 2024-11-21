@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Landing</title>
+    <script type="module" src="../js/index.js" defer></script>
+    <%- include("partials/linksAndScripts") %>
+  </head>
+  <body>
+    <header>
+      <%- include("partials/indexNavbar") %>
+    </header>
+    <main>
+      <!-- login modal -->
+      <%- include("partials/login") %>
+      <!-- register modal -->
+      <%- include("partials/register") %>
+      <!-- profile modal -->
+      <%- include("partials/profile") %>
+       <!-- profile modal -->
+       <%- include("partials/forgotPassword") %>
+
+      <section class="container px-4 py-2" id="custom-cards">
+        <h2 class="pb-2 border-bottom text-center">Landing</h2>
+        <section class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+          <section class="col">
+            <section class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url(images/fortnite_group.jpg);">
+              <section class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Fortnite</h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                    <img src="images/lockIcon.png" alt="DeniedAccess" width="32" height="32" class="">
+                  </li>
+                  <li class="d-flex align-items-center">
+                  </li>
+                </ul>
+              </section>
+            </section>
+          </section>
+          <section class="col"> 
+            <a class="text-decoration-none" href="home" id="lmg-href">
+              <section class="card card-cover h-80 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url(images/legoMinifigsProject2.jpeg);">
+                <section class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                  <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">LMG</h3>
+                  <ul class="d-flex list-unstyled mt-auto">
+                    <li class="me-auto">
+                      <img src="images/checkmarkIcon.png" alt="AccessGranted" width="32" height="32" class="">
+                    </li>
+                    <li class="d-flex align-items-center">
+                    </li>
+                  </ul>
+                </section>
+              </section>
+            </a>
+          </section>
+          <section class="col">
+            <section class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url(images/LOTR.jpeg);">
+              <section class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">LOTR</h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                    <img src="images/lockIcon.png" alt="DeniedAccess" width="32" height="32" class="">
+                  </li>
+                  <li class="d-flex align-items-center">
+                  </li>
+                </ul>
+              </section>
+            </section>
+          </section>
+        </section>
+        <section class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+          <section class="col">
+            <section class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url(images/fifa4.jpg);">
+              <section class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">FIFA</h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                    <img src="images/lockIcon.png" alt="DeniedAccess" width="32" height="32" class="">
+                  </li>
+                  <li class="d-flex align-items-center">
+                  </li>
+                </ul>
+              </section>
+            </section>
+          </section>
+          <section class="col">
+            <section class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url(images/pokemon_group.jpg);">
+              <section class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">Pokemon</h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                    <img src="images/lockIcon.png" alt="DeniedAccess" width="32" height="32" class="">
+                  </li>
+                  <li class="d-flex align-items-center">
+                  </li>
+                </ul>
+              </section>
+            </section>
+          </section>
+          <section class="col">
+            <section class="card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg" style="background-image: url(images/MTG.jpeg); background-repeat: no-repeat;">
+              <section class="d-flex flex-column h-100 p-5 pb-3 text-shadow-1">
+                <h3 class="pt-5 mt-5 mb-4 display-6 lh-1 fw-bold">MTG</h3>
+                <ul class="d-flex list-unstyled mt-auto">
+                  <li class="me-auto">
+                    <img src="images/lockIcon.png" alt="DeniedAccess" width="32" height="32" class="">
+                  </li>
+                  <li class="d-flex align-items-center me-3">
+                  </li>
+                  <li class="d-flex align-items-center">
+                  </li>
+                </ul>
+              </section>
+            </section>
+          </section>
+        </section>
+      </section>
+    </main>
+    <footer class="py-3 my-4">
+      <p class="text-center text-body-secondary">LMG © 2024</p>
+    </footer>
+  </body>
+</html>

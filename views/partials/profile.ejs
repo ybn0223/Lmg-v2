@@ -1,0 +1,73 @@
+<!-- profile modal -->
+<div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+  <% if (wrongPassword) { %> data-show="true" <% } %>>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="me-2 mt-2 border-bottom-0 text-end">
+        <button type="button" class="btn-close" aria-label="Close" data-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="changePasswordForm" action="/change-password" method="POST" oninput='confirmNewPassword.setCustomValidity(confirmNewPassword.value != newPassword.value ? "Wachtwoorden komen niet overeen." : "")'>
+          <div class="card mx-2 content">
+            <h1 class="text-center">mijn profiel</h1>
+            <div class="card-body text-center">
+              <div class="text-center">
+                <img class="rounded-circle shadow-4-strong" height="125" width="125" id="profileAvatar" alt="avatar" src="images/yodaAvatar.png"/>
+              </div>
+              <div class="text-center mt-1">
+                <div class="">
+                  <h5>e-mailadres</h5>
+                </div>
+                <% if (user) { %>
+                  <input class="form-control text-center" type="text" value="<%= user.email %>" aria-label="Disabled input example" disabled>
+                <% } else { %>
+                  <input class="form-control text-center" type="text" value="Doe" aria-label="Disabled input example" disabled>
+                <% } %>
+                <hr>
+                <div class="">
+                  <h5>gebruikersnaam</h5>
+                </div>
+                <% if (user) { %>
+                  <input class="form-control text-center" type="text" name="username" id="username" value="<%= user.username %>" aria-label="Disabled input example" readonly>
+                <% } else { %>
+                  <input class="form-control text-center" type="text" value="Doe" aria-label="Disabled input example" readonly>
+                <% } %>
+                <hr>
+                <div class="text-center">
+                  <div class="">
+                    <h5>Huidig wachtwoord</h5>
+                  </div>
+                  <div class="form-group mt-3">
+                    <input type="password" class="form-control text-center" id="currentPassword" name="currentPassword" placeholder="huidig wachtwoord" required>
+                  </div>
+                  <div class="">
+                    <h5>Nieuw wachtwoord</h5>
+                  </div>
+                  <div class="form-group mt-3">
+                    <input type="password" class="form-control text-center" id="newPassword" name="newPassword" placeholder="nieuw wachtwoord" pattern="(?=.*[A-Z]).{8,}" title="Wachtwoord moet minstens één hoofdletter en minimaal 8 tekens bevatten" required>
+                  </div>
+                  <div class="form-group mt-3">
+                    <input type="password" class="form-control text-center" id="confirmNewPassword" name="confirmNewPassword" placeholder="bevestig nieuw wachtwoord" required>
+                  </div>
+                </div>
+                <% if (wrongPassword) { %>
+                  <p style="color: red;">*huidig wachtwoord is incorrect*</p>
+                <% } %>
+                <button type="submit" class="btn btn-outline-warning mx-5 mb-3 mt-2">Opslaan</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/profile.js"></script>
+<% if (wrongPassword) { %>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var profileModal = new bootstrap.Modal(document.getElementById('profileModal'));
+    profileModal.show();
+  });
+</script>
+<% } %>

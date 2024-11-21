@@ -1,0 +1,36 @@
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true"
+    <% if (userExists) { %> data-show="true" <% } %>>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+          <div class="modal-header border-bottom-0">
+              <button type="button" class="btn-close" aria-label="Close" data-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+              <div class="form-title text-center">
+                  <h4>Registreer</h4>
+              </div>
+              <div class="d-flex flex-column text-center">
+                  <form action="/register" method="post" oninput='password2.setCustomValidity(password2.value != password.value ? "Wachtwoorden komen niet overeen." : "")'>
+                        <div class="form-group mt-3">
+                          <input type="email" class="form-control" id="email" name="email" placeholder="uw e-mailadres" required>
+                        </div>
+                      <div class="form-group mt-3">
+                          <input type="text" class="form-control" id="registerUsername" name="username" placeholder="uw gebruikersnaam" pattern="[A-Za-z0-9_]{3,20}" title="Gebruikersnaam moet bestaan uit 3-20 alfanumerieke tekens of underscores" required>
+                      </div>
+                      <div class="form-group mt-3">
+                          <input type="password" class="form-control" id="password" name="password" placeholder="uw wachtwoord" pattern="(?=.*[A-Z]).{8,}" title="Wachtwoord moet minstens één hoofdletter en minimaal 8 tekens bevatten" required>
+                      </div>
+                      <div class="form-group mt-3">
+                          <input type="password" class="form-control" id="password2" name="password2" placeholder="bevestig wachtwoord" required>
+                      </div>
+                      <% if (userExists) { %>
+                        <p style="color: red;">*Gebruikersnaam bestaat al*</p>
+                      <% } %>
+                      <button type="submit" class="btn btn-outline-warning me-2 mt-4">Registreer</button>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<script src="/js/index.js"></script>

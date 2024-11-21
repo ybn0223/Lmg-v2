@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ordenen</title>
+    <%- include("partials/linksAndScripts") %>
+</head>
+<body>
+    <%- include("partials/navbar") %>
+    <main class="container mt-3 mb-5">
+        <!-- Modals and other content remain unchanged -->
+
+        <!-- Hidden container to hold all minifigs -->
+        <div id="minifigsContainer" style="display: none;">
+          <% minifigsShow.forEach(minifig => { %>
+              <div class="minifig-card text-center mb-3" data-minifig-id="<%= minifig._id %>">
+                  <h3><%= minifig.name %></h3>
+                  <div class="minifig-image-container">
+                      <img src="<%= minifig.set_img_url %>" alt="<%= minifig.name %>" class="minifig-image" />
+                  </div>
+              </div>
+          <% }) %>
+      </div>      
+
+        <!-- Visible container to show one minifig at a time -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-sm-12">
+                <div id="currentMinifig" class="minifig-card text-center mb-3">
+                    <!-- Content will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+                <div class="d-flex justify-content-between text-center">
+                    <button id="skipButton" class="btn btn-warning">Skip</button>
+                    <button id="sortButton" class="btn btn-warning" data-toggle="modal" data-target="#sortModal">Toevoegen aan collectie</button>
+                    <button id="blacklistButton" class="btn btn-warning" data-toggle="modal" data-target="#blacklistModal">Blacklist</button>
+                </div>
+        </div>
+    </main>
+    <footer class="py-3 mt-5">
+        <%- include("partials/footer") %>
+    </footer>
+      <script>
+      document.addEventListener("DOMContentLoaded", function() {
+    const minifigs = Array.from(document.querySelectorAll("#minifigsContainer .minifig-card"));
+    let currentIndex = 0;
+
+    const showMinifig = (index) => {
+        const currentMinifigContainer = document.getElementById("currentMinifig");
+        if (index < minifigs.length) {
+            currentMinifigContainer.innerHTML = minifigs[index].innerHTML;
+        } else {
+            currentMinifigContainer.innerHTML = "<p class='text-center'>No more minifigs available.</p>";
+        }
+    };
+
+    document.getElementById("skipButton").addEventListener("click", function() {
+        currentIndex++;
+        showMinifig(currentIndex);
+    });
+
+    document.getElementById("sortButton").addEventListener("click", async function() {
+    if (currentIndex < minifigs.length) {
+        currentIndex++;
+        showMinifig(currentIndex);
+
+        const minifigCard = minifigs[currentIndex - 1];
+        const minifigId = minifigCard.getAttribute("data-minifig-id");
+        const userId = '<%= user._id %>'; // Zorg ervoor dat user.id correct wordt ingevuld
+
+        console.log('Sending userId:', userId);
+
+        try {
+            const response = await fetch("/addToUserMinifigCollection", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ userId, minifigId })
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to add minifig to collection.");
+            }
+
+            console.log("Minifig added to collection");
+        } catch (error) {
+            console.error("Error adding minifig to collection:", error);
+        }
+    }
+});
+
+    document.getElementById("blacklistButton").addEventListener("click", async function() {
+    if (currentIndex < minifigs.length) {
+        const minifigCard = minifigs[currentIndex]; // Get the current minifig card
+        const minifigId = minifigCard.getAttribute("data-minifig-id");
+        const userId = '<%= user._id %>'; // Zorg ervoor dat user.id correct wordt ingevuld
+
+        console.log('Sending userId:', userId);
+
+        try {
+            const response = await fetch("/addToBlacklist", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ minifigId: minifigId }) // Verzend minifigId als een string
+            });
+
+            if (!response.ok) {
+                throw new Error("Failed to add minifig to blacklist.");
+            }
+            
+            // Optioneel: Update de UI of toon feedback aan de gebruiker
+            console.log("Minifig added to blacklist");
+            currentIndex++; // Move to the next minifig
+            showMinifig(currentIndex); // Update UI to show the next minifig
+
+        } catch (error) {
+            console.error("Error adding minifig to blacklist:", error);
+        }
+    }
+});
+
+    // Initial display
+    showMinifig(currentIndex);
+});
+
+  </script>
+  
+</body>
+</html>

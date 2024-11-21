@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summary</title>
+</head>
+<body>
+    <%- include("partials/linksAndScripts") %>
+  </head>
+  <header>
+    <%- include("partials/navbar") %>
+  </header>
+    <main>
+      <!-- profile modal -->
+      <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="me-2 mt-2 border-bottom-0 text-end">
+                <button type="button" class="btn-close" aria-label="Close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="card mx-2 content">
+                      <h1 class="text-center">mijn profiel</h1>
+                      <div class="card-body text-center">
+                        <div class="text-center">
+                          <img class="rounded-circle shadow-4-strong" height="125" width="125" id="profileAvatar" alt="avatar" src="/assets/yodaAvatar.png"/>
+                        </div>
+                        <div class="text-center mt-1">
+                          <div class="">
+                            <h5>voornaam</h5>
+                          </div>
+                          <div class="">
+                            <input class="form-control text-center" type="text" value="John" aria-label="Disabled input example" disabled>
+                          </div>
+                          <hr>
+                          <div class="text-center">
+                            <div class="">
+                              <h5>achternaam</h5>
+                            </div>
+                            <div class="">
+                              <input class="form-control text-center" type="text" value="Doe" aria-label="Disabled input example" disabled>
+                            </div>
+                            <hr>
+                            <div class="text-center">
+                            <div class="">
+                              <h5>e-mail</h5>
+                            </div>
+                            <div class="">
+                              <input class="form-control text-center" type="text" value="JohnDoe123@outlook.com" aria-label="Disabled input example" disabled>
+                            </div>
+                            <hr>
+                            <div class="form-group mt-3">
+                              <input type="password" class="form-control text-center" id="regPass2" placeholder="wijzig wachtwoord">
+                            </div>
+                            <div class="form-group mt-3">
+                              <input type="password" class="form-control text-center" id="regPass2" placeholder="bevestig wachtwoord">
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-outline-warning mx-5 mb-3 mt-2" data-dismiss="modal" aria-label="Close">Opslaan</button>
+                </form>         
+              </div>
+            </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      <div class="container my-4">
+        <section class="mb-3">
+            <div class="card">
+                <div class="card-header">
+                    Samenvatting:
+                    <img src="/assets/Samenvatting-image.png" alt="Samenvatting" class="card-top-right-image">
+                </div>
+                <div class="card-body">
+                    <p class="card-text p-3"> U hebt 2 minifigs ge-ordened, 2 geskipt en 3 blacklisted. </p> 
+                </div>
+            </div>
+        </section>
+        <div class="d-flex justify-content-around mb-3">
+            <a href="#" class="btn btn-outline-secondary">Home</a>
+            <a href="#" class="btn btn-outline-secondary">Opnieuw</a>
+            <a href="#" class="btn btn-outline-secondary">Bekijk</a>
+        </div>
+      </div>
+    </main>
+    <footer class="py-3 mt-5 fixed-bottom">
+      <%- include("partials/footer") %>
+    </footer>
+</body>
+</html>

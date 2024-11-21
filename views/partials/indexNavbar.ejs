@@ -1,0 +1,16 @@
+<nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mx-2">
+    <ul class="nav col-md-auto mb-2 justify-content-center mb-md-0 mx-1">
+      <a href="/"><img src="/images/testLogo.png" width="192" height="86"></a>
+    </ul>
+    <section class="col-md-3 text-end mx-1">
+      <% if (user) { %>
+        <button type="button" class="btn btn-outline-warning me-2" data-toggle="modal" data-target="#profileModal">profiel</button>
+        <form action="/logout" method="POST" style="display: inline;">
+          <button type="submit" class="btn btn-warning me-2">log uit</button>
+        </form>
+      <% } else { %>
+        <button type="button" class="btn btn-outline-warning me-2" data-toggle="modal" data-target="#loginModal">inloggen</button>  
+        <button type="button" class="btn btn-warning me-2" data-toggle="modal" data-target="#registerModal">registreer</button>
+      <% } %>
+    </section>
+  </nav>

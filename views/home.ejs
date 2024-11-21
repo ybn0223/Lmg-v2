@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <%- include("partials/linksAndScripts") %>
+
+</head>
+<body>
+    <header>
+     <!-- navbar -->
+    <%- include("partials/navbar") %>
+
+    </header>
+    <main>
+      <!-- profile modal -->
+      <%- include("partials/profile") %>
+      <section class="d-none d-md-block" id="homeBannerSection">
+        <img id="homeBanner" src="images/homepageBanner.jpg" width="100%" height="500" alt="">
+      </section>
+      <section class="mt-5" id="homeButtons">
+        <article class="homeButtonsArticle">
+          <a href="sort" id="homeSortBtn" type="button" class="btn btn-warning" >minifigs</br>ordenen</a>
+          <img class="homepageImages" id="sortImage" height="192" width="192" src="images/twoArrowsSmaller.png" alt="">
+        </article>
+        <!-- VRAAG OF INLINE CSS NIET MAG -->
+        <article class="homeButtonsArticle">
+          <a href="blacklist" id="homeBlacklistBtn" type="button" class="btn btn-warning" >blacklist</br>bekijken</a>
+          <img class="homepageImages" id="sortImage" height="192" width="192" src="images/stop_transparant.png" alt="">
+        </article>
+        <article class="homeButtonsArticle">
+          <a href="collection" id="homeMinifigsBtn" type="button" class="btn btn-warning" >minifigs</br>bekijken</a>
+          <img class="homepageImages" id="sortImage" height="192" width="192" src="images/minifigHomepage.png" alt="">
+
+        </article>
+      </section>
+    </main>
+    <footer class="pt-2 mt-5">
+      <%- include("partials/footer") %>
+    </footer>
+</body>

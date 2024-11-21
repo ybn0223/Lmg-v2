@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mijn lijst</title>
+    <%- include("partials/linksAndScripts") %>
+</head>
+<body>
+    <header>
+        <!-- navbar -->
+        <%- include("partials/navbar") %>
+    </header>
+    <main>
+        <!-- profile modal -->
+        <%- include("partials/profile") %>
+        
+        <section class="container">
+            <h2 class="text-center mb-5">Collectie</h2>
+            <a href="sets" class="text-decoration-none"><p>Bekijk alle sets</p></a>
+            <section class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Naam</th>
+                            <th>Foto</th>
+                            <th>Verwijder</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% minifigsShow.forEach((minifig, index) => { %>
+                            <tr>
+                                <td><%= index + 1 %></td>
+                                <td><%= minifig.name %></td>
+                                <td><img src="<%= minifig.set_img_url %>" alt="<%= minifig.name %>" width="192"></td>
+                                <td>
+                                    <form action="/collection/delete/<%= minifig._id %>" method="POST">
+                                        <button type="submit" class="btn">
+                                            <img src="images/deleteButton.png" width="48" alt="Delete">
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+    </main>
+    <footer class="py-3 mt-5">
+        <%- include("partials/footer") %>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

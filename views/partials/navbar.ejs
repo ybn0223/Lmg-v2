@@ -1,0 +1,23 @@
+<nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark" >
+    <ul class="nav col-md-auto mb-2 justify-content-center mb-md-0">
+      <li><img src="images/iconLogo.svg" width="48" class="ms-3"></li>
+      <li><a href="home" class="nav-link px-2">Home</a></li>
+      <li><a href="sort" class="nav-link px-2">Ordenen</a></li>
+      <li><a href="collection" class="nav-link px-2">Collectie</a></li>
+      <li><a href="blacklist" class="nav-link px-2">Blacklist</a></li>
+    </ul>
+      <section class="col-md-3 text-end">
+        <% if (user) { %>
+          <button type="button" class="btn btn-outline-warning me-2" data-toggle="modal" data-target="#profileModal">profiel</button>
+          <form action="/logout" method="POST" style="display: inline;">
+            <button type="submit" class="btn btn-warning me-2">log uit</button>
+          </form>
+        <% } else { %>
+          <button type="button" class="btn btn-outline-warning me-2" data-toggle="modal" data-target="#loginModal">inloggen</button>  
+          <button type="button" class="btn btn-warning me-2" data-toggle="modal" data-target="#registerModal">registreer</button>
+        <% } %>
+      </section>
+    </nav>
+    <br>
+
+    <!-- class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-2 border-bottom" -->

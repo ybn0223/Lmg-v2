@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactpagina</title>
+    <%- include("partials/linksAndScripts") %>
+</head>
+<body>
+  <header>
+    <%- include("partials/navbar") %>
+  </header>
+    <main>
+      <!-- profile modal -->
+      <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="me-2 mt-2 border-bottom-0 text-end">
+                <button type="button" class="btn-close" aria-label="Close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="card mx-2 content">
+                      <h1 class="text-center">mijn profiel</h1>
+                      <div class="card-body text-center">
+                        <div class="text-center">
+                          <img class="rounded-circle shadow-4-strong" height="125" width="125" id="profileAvatar" alt="avatar" src="/assets/yodaAvatar.png"/>
+                        </div>
+                        <div class="text-center mt-1">
+                          <div class="">
+                            <h5>voornaam</h5>
+                          </div>
+                          <div class="">
+                            <input class="form-control text-center" type="text" value="John" aria-label="Disabled input example" disabled>
+                          </div>
+                          <hr>
+                          <div class="text-center">
+                            <div class="">
+                              <h5>achternaam</h5>
+                            </div>
+                            <div class="">
+                              <input class="form-control text-center" type="text" value="Doe" aria-label="Disabled input example" disabled>
+                            </div>
+                            <hr>
+                            <div class="text-center">
+                            <div class="">
+                              <h5>e-mail</h5>
+                            </div>
+                            <div class="">
+                              <input class="form-control text-center" type="text" value="JohnDoe123@outlook.com" aria-label="Disabled input example" disabled>
+                            </div>
+                            <hr>
+                            <div class="form-group mt-3">
+                              <input type="password" class="form-control text-center" id="regPass2" placeholder="wijzig wachtwoord">
+                            </div>
+                            <div class="form-group mt-3">
+                              <input type="password" class="form-control text-center" id="regPass2" placeholder="bevestig wachtwoord">
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-outline-warning mx-5 mb-3 mt-2" data-dismiss="modal" aria-label="Close">Opslaan</button>
+                </form>         
+              </div>
+            </div>
+        </div>
+      </div>
+      </div>
+      </div>
+        <div class="container my-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="contact-form bg-white p-4 shadow rounded">
+                    <img src="/assets/contact_question.png" alt="question" class="contact-form-question">
+                    <h2>Contacteer ons</h2>
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Naam</label>
+                            <input type="text" class="form-control" id="name" placeholder="Naam">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="e-mail" placeholder="e-mail">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Bericht</label>
+                            <textarea class="form-control" id="message" rows="3" placeholder="bericht"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Verstuur</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+      <div class="row">
+          <div class="col-md-6 offset-md-3">
+              <div class="contact-form bg-white p-4 shadow rounded">
+                  <img src="/assets/contact_question.png" alt="question" class="contact-form-question">
+                  <h2> Gegevens </h2>
+                  <h6> TELEFOON </h3>
+                  <p> 0480 12 34 56</p>
+                  <h6> ADRES </h3>
+                  <p> Legostraat 1, 2020 Antwerpen, BE </p>
+                  <h6> E-MAIL </h3>
+                  <p> admin@lmg.be </p>
+              </div>
+          </div>
+      </div>
+  </div>
+    </main>
+    <footer class="py-3 mt-5">
+      <%- include("partials/footer") %>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>error 404</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<header>
+    <%- include("partials/indexNavbar") %>
+    <%- include("partials/linksAndScripts") %>
+</header>
+<body>
+    <!-- login modal -->
+    <%- include("partials/login") %>
+
+    <!-- register modal -->
+    <%- include("partials/register") %>
+
+    <!-- profile modal -->
+    <%- include("partials/profile") %>
+    <div class="container text-center" id="errorPage">
+        <h1>Oeps, er is iets mis gegaan</h1>
+        <img id="errorImg" src="/images/404.jpg" alt="404 image">
+    </div>
+    <footer class="py-3 my-4">
+      <p class="text-center text-body-secondary">LMG © 2024</p>
+    </footer>
+</body>
+</html>
